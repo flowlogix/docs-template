@@ -1,0 +1,15 @@
+fa-regular-400.woff2 filter=lfs diff=lfs merge=lfs -text
+fa-brands-400.svg filter=lfs diff=lfs merge=lfs -text
+fa-brands-400.woff filter=lfs diff=lfs merge=lfs -text
+fa-regular-400.eot filter=lfs diff=lfs merge=lfs -text
+fa-regular-400.svg filter=lfs diff=lfs merge=lfs -text
+fa-brands-400.woff2 filter=lfs diff=lfs merge=lfs -text
+fa-solid-900.svg filter=lfs diff=lfs merge=lfs -text
+fa-solid-900.woff filter=lfs diff=lfs merge=lfs -text
+fa-brands-400.eot filter=lfs diff=lfs merge=lfs -text
+fa-brands-400.ttf filter=lfs diff=lfs merge=lfs -text
+fa-solid-900.woff2 filter=lfs diff=lfs merge=lfs -text
+fa-regular-400.ttf filter=lfs diff=lfs merge=lfs -text
+fa-regular-400.woff filter=lfs diff=lfs merge=lfs -text
+fa-solid-900.eot filter=lfs diff=lfs merge=lfs -text
+fa-solid-900.ttf filter=lfs diff=lfs merge=lfs -text

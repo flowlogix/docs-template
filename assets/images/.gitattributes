@@ -1,0 +1,2 @@
+building.png filter=lfs diff=lfs merge=lfs -text
+ready.png filter=lfs diff=lfs merge=lfs -text
