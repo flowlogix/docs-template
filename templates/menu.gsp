@@ -1,8 +1,10 @@
 <%
     content.newEntries = []
-    content.newEntries << [isActive: true, href: 'https://github.com/flowlogix/flowlogix', title: 'FlowLogix GitHub']
-    content.newEntries << [isActive: true, href: 'https://flowlogix.com', title: 'Flow Logix, Inc.']
-    content.newEntries << [isActive: true, href: 'https://www.hope.nyc.ny.us', title: 'Lenny Primak']
+    if (config.site_menu) {
+        config.site_menu.each {
+            content.newEntries << [href: config["site_menu_${it}_url"], title: config["site_menu_${it}_label"]]
+        }
+    }
 %>
 
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -17,7 +19,7 @@
         content.newEntries.each { entry ->
 %>
             <li class="nav-item mr-4 mb-2 mb-lg-0">
-                <a class="nav-link ${entry.isActive}" href="${entry.href}"><span>${entry.title}</span></a>
+                <a class="nav-link" href="${entry.href}"><span>${entry.title}</span></a>
             </li>
 <%
         }
