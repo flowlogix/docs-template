@@ -11,9 +11,11 @@
     <div class="td-content">
         <p>
             <%
+                def first_section = "<div class=\"sect"
                 def splitBody = content.body
-                if (splitBody.contains("<!-- endtoc -->")) {
-                    splitBody = splitBody.split("(?ms)<!-- endtoc -->", 2)[1]
+                if (splitBody.contains(first_section)) {
+                    def split_doc = splitBody.split("(?ms)$first_section", 2)[1]
+                    splitBody = "$first_section$split_doc"
                 }
                 out << splitBody
             %>
