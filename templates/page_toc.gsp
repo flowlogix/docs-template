@@ -4,7 +4,7 @@
 <header>
     <%include "menu.gsp"%>
 </header>
-<body onload="prettyPrint()" class="td-section">
+<body class="td-section">
 <div class="container-fluid td-outer">
     <div class="td-main">
         <div class="row flex-xl-nowrap">
