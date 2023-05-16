@@ -4,6 +4,15 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <meta content="jbake" name="generator">
   <meta content="INDEX, FOLLOW" name="ROBOTS">
+  <%if (config.site_description) { %>
+    <meta name="description" content="${config.site_description}">
+  <% } %>
+  <%if (content.author) { %>
+    <meta name="author" content="${content.author}">
+  <% } %>
+  <%if (content.keywords) { %>
+    <meta name="keywords" content="${content.keywords}">
+  <% } %>
 
   <title><%if (content.title) {%>${content.title}<% } else { %>${config.site_title}<% }%></title>
 
