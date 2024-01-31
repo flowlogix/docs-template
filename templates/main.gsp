@@ -17,7 +17,17 @@
                     def split_doc = splitBody.split("(?ms)$first_section", 2)[1]
                     splitBody = "$first_section$split_doc"
                 }
-                out << splitBody
+
+                if (config.latestVersion_group && config.latestVersion_artifact) {
+                    // find latest version of the artifact
+                    String output = ("https://search.maven.org/solrsearch/select?q=g:${config.latestVersion_group}+" +
+                            "AND+a:${config.latestVersion_artifact}&wt=json").toURL().text
+                    def slurper = new groovy.json.JsonSlurper()
+                    String latestVersion = slurper.parseText(output).response.docs[0].latestVersion
+                    out << splitBody.replace(/&lt;&lt;LATEST&gt;&gt;/, latestVersion)
+                } else {
+                    out << splitBody
+                }
             %>
         </p>
         <!--div class="text-muted mt-5 pt-3 border-top">Last modified July 3, 2019: <a
