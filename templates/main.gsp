@@ -21,9 +21,35 @@
                 if (config.latestVersion_group && config.latestVersion_artifact) {
                     // find latest version of the artifact
                     String output = ("https://central.sonatype.com/solrsearch/select?q=g:${config.latestVersion_group}+" +
-                            "AND+a:${config.latestVersion_artifact}&wt=json").toURL().text
+                            "AND+a:${config.latestVersion_artifact}&wt=json&rows=50000").toURL().text
+                    println output
                     def slurper = new groovy.json.JsonSlurper()
-                    String latestVersion = slurper.parseText(output).response.docs[0].latestVersion
+                    def versions = slurper.parseText(output).response.docs*.v
+                    String latestVersion = versions.max { a, b ->
+                        def aParts = a.split(/[-.]/).collect { it.isInteger() ? it as int : it }
+                        def bParts = b.split(/[-.]/).collect { it.isInteger() ? it as int : it }
+
+                        int comparisonResult = 0
+                        for (int i = 0; i < Math.max(aParts.size(), bParts.size()); i++) {
+                            def aPart = i < aParts.size() ? aParts[i] : null
+                            def bPart = i < bParts.size() ? bParts[i] : null
+
+                            if (aPart == bPart) continue
+
+                            if (aPart == null) return -1
+                            if (bPart == null) return 1
+
+                            if (aPart instanceof Integer && bPart instanceof Integer) {
+                                comparisonResult = aPart <=> bPart
+                            } else {
+                                comparisonResult = aPart.toString() <=> bPart.toString()
+                            }
+
+                            if (comparisonResult != 0) return comparisonResult
+                        }
+
+                        return 0
+                    }
                     out << splitBody.replace(/&lt;&lt;LATEST&gt;&gt;/, latestVersion)
                 } else {
                     out << splitBody
