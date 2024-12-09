@@ -22,7 +22,6 @@
                     // find latest version of the artifact
                     String output = ("https://central.sonatype.com/solrsearch/select?q=g:${config.latestVersion_group}+" +
                             "AND+a:${config.latestVersion_artifact}&wt=json&rows=10000").toURL().text
-                    println output
                     def slurper = new groovy.json.JsonSlurper()
                     def versions = slurper.parseText(output).response.docs*.v
                     String latestVersion = versions.max { a, b ->
