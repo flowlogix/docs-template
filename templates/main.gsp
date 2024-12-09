@@ -20,7 +20,7 @@
 
                 if (config.latestVersion_group && config.latestVersion_artifact) {
                     // find latest version of the artifact
-                    String output = ("https://search.maven.org/solrsearch/select?q=g:${config.latestVersion_group}+" +
+                    String output = ("https://central.sonatype.com/solrsearch/select?q=g:${config.latestVersion_group}+" +
                             "AND+a:${config.latestVersion_artifact}&wt=json").toURL().text
                     def slurper = new groovy.json.JsonSlurper()
                     String latestVersion = slurper.parseText(output).response.docs[0].latestVersion
