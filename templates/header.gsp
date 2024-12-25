@@ -22,7 +22,7 @@
         rel="stylesheet">
   <link href="${content.rootpath}css/asciidoctor.css" rel="stylesheet">
     <link href="${content.rootpath}css/flowlogix.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/github.min.css">
 
     <!-- favicon generated with https://www.favicon-generator.org/ -->
     <link rel="shortcut icon" href="${content.rootpath}favicon.ico">
