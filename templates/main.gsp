@@ -49,7 +49,7 @@
 
                         return 0
                     }
-                    out << splitBody.replace(/&lt;&lt;LATEST&gt;&gt;/, latestVersion)
+                    out << splitBody.replace(/&lt;&lt;LATEST&gt;&gt;/, latestVersion).replace('${flowlogix.examples.bom.version}', latestVersion)
                 } else {
                     out << splitBody
                 }
