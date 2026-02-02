@@ -1,0 +1,19 @@
+# Allow all user agents by default
+User-agent: *
+Allow: /
+
+# Block sensitive directories
+# Disallow: /admin/
+
+# Prevent crawling pages with query parameters to avoid duplicate content
+Disallow: /*?*
+
+# Wait 1 second between requests to reduce server load
+Crawl-delay: 1
+
+# Special rule for Google's ad bot (allow full access)
+User-agent: AdsBot-Google
+Allow: /
+
+# Point search engines to your sitemap for better discovery
+Sitemap: /sitemap.xml

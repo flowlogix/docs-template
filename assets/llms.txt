@@ -1,0 +1,19 @@
+# LLM Access Policy
+User-agent: *
+Allow: /
+
+# Require attribution when content is used
+Attribution-Required: true
+
+# Prevent crawling pages with query parameters
+Disallow: /*?*
+
+# Wait 1 second between requests
+Crawl-delay: 1
+
+# Point to sitemap
+Sitemap: /sitemap.xml
+
+# Privacy policy and terms
+Privacy-Policy: /privacy
+Terms-of-Service: /terms
