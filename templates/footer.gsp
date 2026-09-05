@@ -1,4 +1,11 @@
 
+<%
+    if (config.site_scarf_trackingid) {
+        out << """<img referrerpolicy=\"no-referrer-when-downgrade\"
+                    src=\"https://static.scarf.sh/a.png?x-pxid=${config.site_scarf_trackingid}\" />"""
+    }
+%>
+
     <script src="${content.rootpath}js/popper.min.js"></script>
     <script src="${content.rootpath}js/bootstrap.min.js"></script>
 
