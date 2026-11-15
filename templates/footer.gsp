@@ -1,7 +1,7 @@
 
 <%
     if (config.site_scarf_trackingid) {
-        out << """<img referrerpolicy=\"no-referrer-when-downgrade\"
+        out << """<img width=\"1\" height=\"1\" alt=\"\" referrerpolicy=\"no-referrer-when-downgrade\"
                     src=\"https://static.scarf.sh/a.png?x-pxid=${config.site_scarf_trackingid}\" />"""
     }
 %>
