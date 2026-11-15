@@ -3,3 +3,11 @@
 .td-content .highlight {
     margin: .5rem 0;
 }
+
+.td-navbar .td-navbar-nav-scroll {
+    height: auto;
+
+    &, & .navbar-nav {
+        overflow: visible;
+    }
+}
